@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const port = 4000
 // const bodyParser = require('body-parser')
+
+const config = require('./config/key')
+
 const { User } = require("./models/User");
 
 //application/x-www-form-urlencoded
@@ -13,12 +16,12 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 const moogoose = require('mongoose')
-moogoose.connect('mongodb+srv://minhyeok:zlvj4381@nodejs-practice.4xfzaz3.mongodb.net/?retryWrites=true&w=majority', {
+moogoose.connect(config.mongoURI, {
 }).then(() => console.log('몽고DB 연결됨'))
   .catch(err => console.log(err))
 
 app.get('/', (req, res) => {
-  res.send('워메, 만나서 반갑데이')
+  res.send('워메, 억수로 반갑데이')
 })
 
 app.post('/register', (req, res) => {

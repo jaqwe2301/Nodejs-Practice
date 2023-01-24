@@ -46,7 +46,7 @@ const userSchema=mongoose.Schema({
     },
     email:{
         type: String,
-        // space bar를 없애준다.
+        // space bar(띄어쓰기)를 없애준다.
         trim: true,
         // 중복을 허용하지 않는다.
         unique: 1
